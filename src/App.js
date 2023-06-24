@@ -6,10 +6,11 @@ import { AddTodo } from "./MyComponents/AddTodo";
 import { About } from "./MyComponents/About";
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
+
 
 function App() {
   let initTodo;
@@ -59,7 +60,7 @@ function App() {
 
   return ( 
     <> 
-    <Router>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header title="My Todos" searchBar={false} /> 
       <Switch>
           <Route exact path="/" render={()=>{
@@ -75,7 +76,7 @@ function App() {
           </Route> 
         </Switch> 
       <Footer />
-    </Router>
+    </BrowserRouter>
     </>
   );
 }
